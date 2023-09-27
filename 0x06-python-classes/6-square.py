@@ -78,10 +78,12 @@ class Square:
             TypeError: if tuple does not have 2 positive integers
         """
         if not isinstance(value, tuple) or len(value) != 2:
-            raise TypeError("position must be a tuple of 2 positive integers")
+            raise TypeError("position must be a tuple"
+                            "of 2 positive integers")
         for i in value:
             if not isinstance(i, int) or i < 0:
-                raise TypeError("position must be a tuple of 2 positive integers")
+                raise TypeError("position must be a tuple"
+                                "of 2 positive integers")
 
         self.__position = value
 
@@ -106,7 +108,7 @@ class Square:
             print("\n", end="")
         else:
             for i in range(self.size):
-                for k in range (self.position[0]):
+                for k in range(self.position[0]):
                     print(" ", end="")
                 for j in range(self.size):
                     print("{}".format("#"), end="")
