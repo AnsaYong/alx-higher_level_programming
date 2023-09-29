@@ -6,7 +6,7 @@ tests, contains test cases written in text files.
 
 USAGE - Testing:
 
-		__python3 -m doctest -v ./tests/<file_name>.txt__
+		python3 -m doctest -v ./tests/<file_name>.txt
 
 
 The following modules are included in this directory:
