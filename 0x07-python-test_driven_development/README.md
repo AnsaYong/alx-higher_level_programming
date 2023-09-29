@@ -1,8 +1,9 @@
 # 0x07. Python - Test-driven development
 
 This directory contains files generated during the Python Test-driven development course of the
-ALX software engineering program. The modules present in this directory and the subdirectory,
-tests, contains test cases written in text files.
+ALX software engineering program. Modules are present in this directory as Python files while the
+tests subdirectory contains test cases in both text (doctest cases) and Python (unittest cases)
+files.
 
 USAGE - Testing:
 
