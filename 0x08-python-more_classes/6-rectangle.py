@@ -33,7 +33,7 @@ class Rectangle:
             self.__height = height
 
         # Increment the instance count when new object is created
-        number_of_instances += 1
+        Rectangle.number_of_instances += 1
 
     @property
     def width(self):
@@ -141,6 +141,6 @@ class Rectangle:
         Called when an instance of Rectangle is about to be deleted.
         """
         # decrement the instance count whenever an instance is deleted
-        number_of_instances -= 1
+        Rectangle.number_of_instances -= 1
 
         print("Bye rectangle...")
