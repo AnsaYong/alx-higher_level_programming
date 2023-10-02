@@ -128,7 +128,8 @@ class Rectangle:
         for _ in range(self.height):    # _ represents unused. set height
             if isinstance(self.print_symbol, list):
                 # first convert list to a string
-                list_to_string = "[{}]".format(", ".join(self.print_symbol))
+                list_to_string = "['{}']" \
+                .format("', '".join(self.print_symbol))
                 rectangle_str += list_to_string * self.width + "\n"
             else:
                 rectangle_str += self.print_symbol * self.width + "\n"
