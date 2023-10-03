@@ -1,0 +1,74 @@
+The ``5-text_indentation`` module
+=================================
+
+Uses the ``text_indentation`` function
+--------------------------------------
+
+First import the ``text_indentation`` function from the
+``5-text_indentation`` module. Then run the following
+lines of code:
+
+	>>> text_indentation = __import__("5-text_indentation").text_indentation
+	>>> text_indentation(5)	#doctest: +REPORT_UDIFF
+	Traceback (most recent call last):
+		...
+	TypeError: text must be a string
+
+	>>> text_indentation("""Utilitatis causa amicitia est quaesita.\
+	... Lorem ipsum dolor sit amet, consectetur adipiscing elit.\
+	... Collatio igitur ista te nihil iuvat. Honesta oratio, Socratica, \
+	... Platonis etiam. Primum in nostrane potestate est, quid meminerimus? \
+	... Duo Reges: constructio interrete. Quid, si etiam iucunda memoria \
+	... est praeteritorum malorum? Si quidem, inquit, tollerem, sed relinquo. \
+	... An nisi populari fama?\
+	... Quamquam id quidem licebit iis existimare, qui legerint:\
+	... Summum a vobis bonum voluptas dicitur. At hoc in eo M. \
+	... Refert tamen, quo modo. Quid sequatur, quid repugnet, vident. 
+	... Iam id ipsum absurdum, maximum malum neglegi""")	#doctest: +REPORT_UDIFF
+	Utilitatis causa amicitia est quaesita.
+	<BLANKLINE>
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+	<BLANKLINE>
+	Collatio igitur ista te nihil iuvat.
+	<BLANKLINE>
+	Honesta oratio, Socratica, Platonis etiam.
+	<BLANKLINE>
+	Primum in nostrane potestate est, quid meminerimus?
+	<BLANKLINE>
+	Duo Reges:
+	<BLANKLINE>
+	constructio interrete.
+	<BLANKLINE>
+	Quid, si etiam iucunda memoria est praeteritorum malorum?
+	<BLANKLINE>
+	Si quidem, inquit, tollerem, sed relinquo.
+	<BLANKLINE>
+	An nisi populari fama?
+	<BLANKLINE>
+	Quamquam id quidem licebit iis existimare, qui legerint:
+	<BLANKLINE>
+	Summum a vobis bonum voluptas dicitur.
+	<BLANKLINE>
+	At hoc in eo M.
+	<BLANKLINE>
+	Refert tamen, quo modo.
+	<BLANKLINE>
+	Quid sequatur, quid repugnet, vident.
+	<BLANKLINE>
+	<BLANKLINE>
+	Iam id ipsum absurdum, maximum malum neglegi
+
+	>>> text_indentation("Quonam modo? Utrum igitur tibi litteram videor an totas paginas commovere?")
+	Quonam modo?
+	<BLANKLINE>
+	Utrum igitur tibi litteram videor an totas paginas commovere?
+	<BLANKLINE>
+
+	>>> text_indentation()
+	Traceback (most recent call last):
+		...
+	TypeError: text_indentation() missing 1 required positional argument: 'text'
+
+	>>> text_indentation("Transfer idem ad modestiam vel temperantiam, quae"
+	...	" est moderatio cupiditatum rationi oboediens")
+	Transfer idem ad modestiam vel temperantiam, quae est moderatio cupiditatum rationi oboediens
