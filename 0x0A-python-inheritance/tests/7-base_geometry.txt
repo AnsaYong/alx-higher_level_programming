@@ -1,0 +1,33 @@
+The ``7-base_geometry`` module
+==============================
+
+Using ``BaseGeometry`` and its methods
+--------------------------------------
+
+This script contains test cases for the ``7-base_geometry``
+module. First __import__ the ``BaseGeometry`` class and then
+run the test cases provided.
+
+	>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+	>>> bg = BaseGeometry()
+	>>> bg.integer_validator("my_int", 12)
+
+	>>> bg.integer_validator("name", "John")
+	Traceback (most recent call last):
+		...
+	TypeError: name must be an integer
+
+	>>> bg.integer_validator("name", a)
+	Traceback (most recent call last):
+		...
+	NameError: name 'a' is not defined
+
+	>>> bg.integer_validator("name", -1)
+	Traceback (most recent call last):
+		...
+	ValueError: name must be greater than 0
+
+	>>> bg.integer_validator("name", 0)
+	Traceback (most recent call last):
+		...
+	ValueError: name must be greater than 0
