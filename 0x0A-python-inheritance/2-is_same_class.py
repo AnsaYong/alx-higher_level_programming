@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+"""
+This module provides a method that checks if
+a given object is excatly an instance of
+a given class.
+"""
 
 
 def is_same_class(obj, a_class):
