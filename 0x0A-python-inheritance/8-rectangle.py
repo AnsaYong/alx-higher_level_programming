@@ -34,3 +34,28 @@ class BaseGeometry:
             raise TypeError("{} must be an integer".format(name))
         if value <= 0:
             raise ValueError("{} must be greater than 0".format(name))
+
+
+"""
+This module creates a class that inherits
+from another class.
+"""
+
+
+class Rectangle(BaseGeometry):
+    """
+    Class Rectangle.
+    Inherits from class BaseGeometry
+    and defines a square.
+    """
+    def __init__(self, width, height):
+        """Initialization method
+
+        Instantiates with width and height as
+        private instances.
+        """
+        super().__init__()  # Create an instance of BaseGeometry
+        super().integer_validator("width", width)
+        super().integer_validator("height", height)
+        self.__width = width
+        self.__height = height
