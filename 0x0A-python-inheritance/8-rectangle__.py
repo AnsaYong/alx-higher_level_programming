@@ -36,10 +36,16 @@ class BaseGeometry:
             raise ValueError("{} must be greater than 0".format(name))
 
 
+"""
+This module creates a class that inherits
+from another class.
+"""
+
+
 class Rectangle(BaseGeometry):
     """
     Class Rectangle.
-    Inherits __from class BaseGeometry
+    Inherits from class BaseGeometry
     and defines a square.
     """
     def __init__(self, width, height):
