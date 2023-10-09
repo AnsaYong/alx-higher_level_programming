@@ -6,7 +6,7 @@ Using ``MyList`` and ``print_sorted``
 
 This is a 1-my_list text file to test the ``print_sorted`` method
 and ``MyList`` class.
-First import ``MyList`` from the ``1-my_list`` module
+First _import_ ``MyList`` _from_ the ``1-my_list`` module
 
 	>>> MyList = __import__("1-my_list").MyList
 	>>> my_list = MyList()
