@@ -1,0 +1,25 @@
+The ``1-my_list`` module
+========================
+
+Using ``MyList`` and ``print_sorted``
+-------------------------------------
+
+This is a 1-my_list text file to test the ``print_sorted`` method
+and ``MyList`` class.
+First import ``MyList`` from the ``1-my_list`` module
+
+	>>> MyList = __import__("1-my_list").MyList
+	>>> my_list = MyList()
+	>>> my_list.append(0)
+	>>> my_list.append(6)
+	>>> my_list.append(-1)
+	>>> my_list.append(0)
+	>>> print(my_list)
+	[0, 6, -1, 0]
+
+	>>> my_list.print_sorted()
+	[-1, 0, 0, 6]
+
+	>>> my_list.remove(0)
+	>>> my_list.print_sorted()
+	[-1, 0, 6]
