@@ -10,6 +10,9 @@ First _import_ ``MyList`` _from_ the ``1-my_list`` module
 
 	>>> MyList = __import__("1-my_list").MyList
 	>>> my_list = MyList()
+	>>> my_list.print_sorted()
+	[]
+
 	>>> my_list.append(0)
 	>>> my_list.append(6)
 	>>> my_list.append(-1)
