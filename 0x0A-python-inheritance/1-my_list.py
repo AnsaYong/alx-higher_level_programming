@@ -18,6 +18,4 @@ class MyList(list):
         changed.
         """
         sorted_list = sorted(self)
-        print(sorted_list)
-
-        return sorted_list
+        print("{}".format(sorted_list))
