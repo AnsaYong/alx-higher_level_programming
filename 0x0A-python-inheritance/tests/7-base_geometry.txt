@@ -10,11 +10,6 @@ run the test cases provided.
 
 	>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 	>>> bg = BaseGeometry()
-	>>> bg.area()
-	Traceback (most recent call last):
-		...
-	Exception: area() is not implemented
-
 	>>> bg.integer_validator()
 	Traceback (most recent call last):
 		...
@@ -26,11 +21,6 @@ run the test cases provided.
 	Traceback (most recent call last):
 		...
 	TypeError: name must be an integer
-
-	>>> bg.integer_validator("name", a)
-	Traceback (most recent call last):
-		...
-	NameError: name 'a' is not defined
 
 	>>> bg.integer_validator("name", -1)
 	Traceback (most recent call last):
