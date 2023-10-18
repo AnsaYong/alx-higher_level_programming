@@ -1,9 +1,30 @@
 #!/usr/bin/python3
 """
 This module provides the ``Rectangle`` class which
-inherits frm the ``Base`` class.
+inherits _from the ``Base`` class.
 """
-from models.base import Base
+
+
+class Base:
+    """
+    The Base class has a private attribute
+    which will be used to set ``id`` when
+    it is not given.
+    """
+
+    __nb_objects = 0
+
+    def __init__(self, id=None):
+        """
+        Initializes the Base class based on
+        the value of the ``id`` argument.
+        """
+
+        if id is not None:
+            self.id = id
+        else:
+            Base.__nb_objects += 1
+            self.id = Base.__nb_objects
 
 
 class Rectangle(Base):
