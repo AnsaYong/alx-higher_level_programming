@@ -18,6 +18,7 @@ class Rectangle(Base):
         and then calls on the super class to initialize the
         rectangle id.
         """
+
         if not isinstance(width, int):
             raise TypeError("width must be an integer")
         elif width <= 0:
@@ -57,6 +58,7 @@ class Rectangle(Base):
         Returns:
             the private instance attribute width
         """
+
         return self.__width
 
     @width.setter
@@ -69,6 +71,7 @@ class Rectangle(Base):
             TypeError: if width is not an integer
             ValueError: if width is less than or equal to 0
         """
+
         if not isinstance(width, int):
             raise TypeError("width must be an integer")
         elif width <= 0:
@@ -81,6 +84,7 @@ class Rectangle(Base):
         """
         Retrieves the height.
         """
+
         return self.__height
 
     @height.setter
@@ -92,6 +96,7 @@ class Rectangle(Base):
             TypeError: if height is not an integer
             ValueError: if height is < or = 0
         """
+
         if not isinstance(height, int):
             raise TypeError("height must be an integer")
         elif height <= 0:
@@ -104,6 +109,7 @@ class Rectangle(Base):
         """
         Retrieves the value of x.
         """
+
         return self.__x
 
     @x.setter
@@ -115,6 +121,7 @@ class Rectangle(Base):
             TypeError: if x is not an integer
             ValueError: if x is less than 0
         """
+
         if not isinstance(x, int):
             raise TypeError("x must be an integer")
         elif x < 0:
@@ -127,6 +134,7 @@ class Rectangle(Base):
         """
         Retrieves the value of y.
         """
+
         return self.__y
 
     @y.setter
@@ -138,6 +146,7 @@ class Rectangle(Base):
             TypeError: if y is not an integer
             ValueError: if y is less than 0
         """
+
         if not isinstance(y, int):
             raise TypeError("y must be an intger")
         elif y < 0:
@@ -152,12 +161,14 @@ class Rectangle(Base):
         Returns:
             width * height
         """
+
         return self.__width * self.__height
 
     def display(self):
         """
         Prints the rectangle instance using ``#``
         """
+
         for k in range(self.__y):
             print()
         for i in range(self.__height):
@@ -173,6 +184,7 @@ class Rectangle(Base):
         Setting the __str__ method to return a string
         of type [Rectangle] (<id>) <x>/<y> - <width>/<height>.
         """
+
         return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x,
                                                        self.y, self.width,
                                                        self.height)
