@@ -55,3 +55,23 @@ class Square(Rectangle):
         """
         return "[Square] ({}) {}/{} - {}".format(self.id, self.x,
                                                  self.y, self.size)
+
+    def update(self, *args, **kwargs):
+        """
+        A public method that updates the existing
+        attributes by assigning new arguments.
+
+        Args:
+            args: "no-keyword argument" - arg order is very important
+            kwargs: "key-worded argument" - arg order is not important
+        """
+        attributes = ["id", "width", "height", "x", "y"]
+
+        if args:
+            no_attr = min(len(args), len(attributes))
+            for i in range(no_attr):
+                setattr(self, attributes[i], args[i])
+        else:
+            for name in kwargs:
+                if name in attributes:
+                    setattr(self, name, kwargs[name])
