@@ -75,3 +75,17 @@ class Square(Rectangle):
             for name in kwargs:
                 if name in attributes:
                     setattr(self, name, kwargs[name])
+
+    def to_dictionary(self):
+        """
+        Returns the dictionary representation of a square.
+
+        Returns:
+            dictionary of all square attributes.
+        """
+        return {
+                "id": self.id,
+                "size": self.size,
+                "x": self.x,
+                "y": self.y
+                }
