@@ -65,7 +65,7 @@ class Square(Rectangle):
             args: "no-keyword argument" - arg order is very important
             kwargs: "key-worded argument" - arg order is not important
         """
-        attributes = ["id", "width", "height", "x", "y"]
+        attributes = ["id", "size", "x", "y"]
 
         if args:
             no_attr = min(len(args), len(attributes))
