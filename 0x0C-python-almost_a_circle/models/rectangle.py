@@ -186,5 +186,22 @@ class Rectangle(Base):
         """
 
         return ("[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x,
-                                                       self.y, self.width,
-                                                       self.height))
+                                                        self.y, self.width,
+                                                        self.height))
+
+    def update(self, *args):
+        """
+        A public method that assigns an argument to
+        each attribute.
+
+        Argument order is very important - this type of
+        argument (*args) is called a "no-keyword argument"
+        """
+        # Order the attributes the way we want them
+        attributes = ["id", "width", "height", "x", "y"]
+        # Since the numb of attributes is set above, this ensures we never try
+        # to update more attributes than are present
+        no_attr = min(len(args), len(attributes))    # use the smallest
+
+        for i in range(no_attr):
+            setattr(self, attributes[i], args[i])   # uses the order to update
