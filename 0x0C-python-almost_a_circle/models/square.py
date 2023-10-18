@@ -28,6 +28,25 @@ class Square(Rectangle):
         self.size = size
         super().__init__(size, size, x, y, id)
 
+    @property
+    def size(self):
+        """
+        Getter for the size attribute.
+        """
+        return self.width
+
+    @size.setter
+    def size(self, size):
+        """
+        Setter for the size attribute.
+        """
+        if not isinstance(size, int):
+            raise TypeError("width must be an integer")
+        elif size <= 0:
+            raise ValueError("width must be > 0")
+        self.width = size
+        self.height = size
+
     def __str__(self):
         """
         Overrides the __str__ method in the Rectangle
