@@ -1,8 +1,10 @@
 #!/usr/bin/python3
+
 """
 This module provides the ``Rectangle`` class which
 inherits _from the ``Base`` class.
 """
+
 
 from models.base import Base
 
