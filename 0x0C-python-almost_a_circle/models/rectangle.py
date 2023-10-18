@@ -1,11 +1,8 @@
 #!/usr/bin/python3
-
 """
 This module provides the ``Rectangle`` class which
 inherits _from the ``Base`` class.
 """
-
-
 from models.base import Base
 
 
@@ -62,7 +59,7 @@ class Rectangle(Base):
             the private instance attribute width
         """
 
-        return self.__width
+        return (self.__width)
 
     @width.setter
     def width(self, width):
@@ -88,7 +85,7 @@ class Rectangle(Base):
         Retrieves the height.
         """
 
-        return self.__height
+        return (self.__height)
 
     @height.setter
     def height(self, height):
@@ -113,7 +110,7 @@ class Rectangle(Base):
         Retrieves the value of x.
         """
 
-        return self.__x
+        return (self.__x)
 
     @x.setter
     def x(self, x):
@@ -138,7 +135,7 @@ class Rectangle(Base):
         Retrieves the value of y.
         """
 
-        return self.__y
+        return (self.__y)
 
     @y.setter
     def y(self, y):
@@ -165,7 +162,7 @@ class Rectangle(Base):
             width * height
         """
 
-        return self.__width * self.__height
+        return (self.__width * self.__height)
 
     def display(self):
         """
@@ -188,6 +185,6 @@ class Rectangle(Base):
         of type [Rectangle] (<id>) <x>/<y> - <width>/<height>.
         """
 
-        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x,
+        return ("[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x,
                                                        self.y, self.width,
-                                                       self.height)
+                                                       self.height))
