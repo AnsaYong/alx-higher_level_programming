@@ -189,19 +189,25 @@ class Rectangle(Base):
                                                         self.y, self.width,
                                                         self.height))
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """
         A public method that assigns an argument to
         each attribute.
 
-        Argument order is very important - this type of
-        argument (*args) is called a "no-keyword argument"
+        Args:
+            args: "no-keyword argument" - arg order is very important
+            kwargs: "key-worded argument" - arg order is not important
         """
         # Order the attributes the way we want them
         attributes = ["id", "width", "height", "x", "y"]
-        # Since the numb of attributes is set above, this ensures we never try
-        # to update more attributes than are present
-        no_attr = min(len(args), len(attributes))    # use the smallest
 
-        for i in range(no_attr):
-            setattr(self, attributes[i], args[i])   # uses the order to update
+        if args:
+            # Since the numb of attributes is set above, this ensures we
+            # never try to update more attributes than are present
+            no_attr = min(len(args), len(attributes))    # use the smallest
+            for i in range(no_attr):
+                setattr(self, attributes[i], args[i])   # update in order
+        else:
+            for attr_name in kwargs:
+                if attr_name in attributes:
+                    setattr(self, attr_name, kwargs[attr_name])
