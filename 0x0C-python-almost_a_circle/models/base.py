@@ -40,6 +40,6 @@ class Base:
             or []
         """
         if list_dictionaries:
-            return json.dumps(list_dictionaries)
+            return json.dumps(list_dictionaries, default=str)
         else:
             return "[]"
