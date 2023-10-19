@@ -138,3 +138,63 @@ class Base:
         instance_list = [cls.create(**dictionary) for dictionary in dict_list]
 
         return instance_list
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+        Serialize and save a list of objects to a CSV file.
+
+        Args:
+            cls: The class (Rectangle or Square).
+            list_objs: A list of instances to be serialized and saved.
+
+        Returns:
+            None
+        """
+        filename = cls.__name__ + ".csv"
+
+        with open(filename, 'w', encoding='utf-8') as file:
+            if cls.__name__ == "Rectangle":
+                for obj in list_objs:
+                    data = [str(obj.id), str(obj.width), str(obj.height),
+                            str(obj.x), str(obj.y)]
+                    file.write(",".join(data) + "\n")
+            elif cls.__name__ == "Square":
+                for obj in list_objs:
+                    data = [str(obj.id), str(obj.size), str(obj.x), str(obj.y)]
+                    file.write(",".join(data) + "\n")
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """
+        Deserialize and load a list of objects from a CSV file.
+
+        Args:
+            cls: The class (Rectangle or Square).
+
+        Returns:
+            A list of instances loaded from the CSV file.
+        """
+        filename = cls.__name__ + ".csv"
+
+        if not os.path.exists(filename):
+            return []
+
+        instance_list = []
+
+        with open(filename, 'r', encoding='utf-8') as file:
+            for line in file:
+                data = line.strip().split(",")
+                if cls.__name__ == "Rectangle":
+                    obj = cls(int(data[1]), int(data[2]))
+                    obj.id = int(data[0])
+                    obj.x = int(data[3])
+                    obj.y = int(data[4])
+                elif cls.__name__ == "Square":
+                    obj = cls(int(data[1]))
+                    obj.id = int(data[0])
+                    obj.x = int(data[2])
+                    obj.y = int(data[3])
+                instance_list.append(obj)
+
+        return instance_list
