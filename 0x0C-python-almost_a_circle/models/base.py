@@ -4,6 +4,7 @@ This module provides a class which will be
 the base class.
 """
 import json
+import os
 
 
 class Base:
@@ -113,3 +114,27 @@ class Base:
         dummy.update(**dictionary)
 
         return dummy
+
+    @classmethod
+    def load_from_file(cls):
+        """
+        Returns a list of instances from a JSON file.
+
+        Args:
+            cls: the class (Rectangle or Square)
+
+        Returns:
+            list: A list of instances of the specified class.
+        """
+        filename = cls.__name__ + ".json"
+
+        if not os.path.exists(filename):
+            return []
+
+        with open(filename, 'r', encoding='utf-8') as file:
+            json_string = file.read()
+            dict_list = cls.from_json_string(json_string)
+
+        instance_list = [cls.create(**dictionary) for dictionary in dict_list]
+
+        return instance_list
