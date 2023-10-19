@@ -88,3 +88,28 @@ class Base:
             return []
 
         return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """
+        Returns an instance with attributes set based on the given dictionary.
+
+        Args:
+            cls: the class (Rectangle or Square)
+            **dictionary: A dictionary of attributes to set on the instance.
+
+        Returns:
+            An instance with attributes set according to the dictionary.
+        """
+        # Create "dummy" instance
+        if cls.__name__ == "Rectangle":
+            dummy = cls(1, 1)
+        elif cls.__name__ == "Square":
+            dummy = cls(1)
+        else:
+            raise ValueError("Unsupported class")
+
+        # Call update on the dummy instance to apply the new real values
+        dummy.update(**dictionary)
+
+        return dummy
