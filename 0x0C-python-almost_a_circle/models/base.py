@@ -5,6 +5,7 @@ the base class.
 """
 import json
 import os
+import turtle
 
 
 class Base:
@@ -198,3 +199,58 @@ class Base:
                 instance_list.append(obj)
 
         return instance_list
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """
+        Draw rectangles and squares using the Turtle graphics module.
+
+        Args:
+            list_rectangles: List of Rectangle instances to draw.
+            list_squares: List of Square instances to draw.
+
+        Returns:
+            None
+        """
+        # Create a turtle screen
+        screen = turtle.Screen()
+        screen.title("Draw Rectangles and Squares")
+
+        # Create a turtle object for drawing
+        t = turtle.Turtle()
+        t.speed(1)  # Adjust the drawing speed as needed
+
+        # Function to draw a rectangle
+        def draw_rectangle(rectangle):
+            t.penup()
+            t.goto(rectangle.x, rectangle.y)
+            t.pendown()
+            t.setheading(0)  # Set the heading to draw horizontally
+            t.forward(rectangle.width)
+            t.left(90)  # Turn 90 degrees to draw vertically
+            t.forward(rectangle.height)
+            t.left(90)
+            t.forward(rectangle.width)
+            t.left(90)
+            t.forward(rectangle.height)
+            t.left(90)
+
+        # Function to draw a square
+        def draw_square(square):
+            t.penup()
+            t.goto(square.x, square.y)
+            t.pendown()
+            for _ in range(4):
+                t.forward(square.size)
+                t.left(90)
+
+        # Draw rectangles
+        for rect in list_rectangles:
+            draw_rectangle(rect)
+
+        # Draw squares
+        for square in list_squares:
+            draw_square(square)
+
+        # Close the drawing window on click
+        turtle.exitonclick()
