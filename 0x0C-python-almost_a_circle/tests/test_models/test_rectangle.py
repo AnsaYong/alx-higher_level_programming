@@ -173,7 +173,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(str(self.rectangle), expected_str)
 
         self.rectangle = Rectangle(4, 4, 1)  # Another instance of Rectangle
-        expected_str = "[Rectangle] (9) 1/0 - 4/4"
+        expected_str = "[Rectangle] (16) 1/0 - 4/4"
         self.assertEqual(str(self.rectangle), expected_str)
 
     def test_display_x_y(self):
@@ -208,3 +208,183 @@ class TestRectangle(unittest.TestCase):
             self.assertEqual(captured_output1.getvalue(), expected_output1)
         finally:
             sys.stdout = sys.__stdout__  # Restore the original sys.stdout
+
+    def test_update_with_valid_arguments(self):
+        """
+        Test the update method with valid arguments.
+        """
+        r1 = Rectangle(10, 5)
+        r1.update(1, 20, 30, 10, 5)
+
+        self.assertEqual(r1.id, 1)
+        self.assertEqual(r1.width, 20)
+        self.assertEqual(r1.height, 30)
+        self.assertEqual(r1.x, 10)
+        self.assertEqual(r1.y, 5)
+
+    def test_update_with_fewer_arguments(self):
+        """
+        Test the update method with fewer arguments.
+        """
+        r1 = Rectangle(10, 3, 5, 10, 5)
+        r1.update(1, 20, 30)
+
+        self.assertEqual(r1.id, 1)
+        self.assertEqual(r1.width, 20)
+        self.assertEqual(r1.height, 30)
+        self.assertEqual(r1.x, 5) # checks if x remains unaffected
+        self.assertEqual(r1.y, 10) # checks if y remains unaffected
+
+    def test_update_with_extra_arguments(self):
+        """
+        Test the update method with extra arguments.
+        """
+        r1 = Rectangle(10, 5)
+        r1.update(1, 20, 30, 10, 5, 99)
+
+        self.assertEqual(r1.id, 1)
+        self.assertEqual(r1.width, 20)
+        self.assertEqual(r1.height, 30)
+        self.assertEqual(r1.x, 10)
+        self.assertEqual(r1.y, 5)
+
+    def test_update_with_no_arguments(self):
+        """
+        Test the update method with no arguments.
+        """
+        r1 = Rectangle(10, 5)
+        r1.update()
+
+        self.assertEqual(r1.id, 28)
+        self.assertEqual(r1.width, 10)
+        self.assertEqual(r1.height, 5)
+        self.assertEqual(r1.x, 0)
+        self.assertEqual(r1.y, 0)
+
+    def test_update_with_kwargs_id(self):
+        """
+        Test the update method with kwargs and
+        id only.
+        """
+        r1 = Rectangle(5, 10)
+        r1.update(id=42)
+        self.assertEqual(r1.id, 42)
+        self.assertEqual(r1.width, 5)
+        self.assertEqual(r1.height, 10)
+        self.assertEqual(r1.x, 0)
+
+    def test_update_with_kwargs_id_and_width(self):
+        """
+        test the update method with kwargs and id
+        and width as arguments.
+        """
+        r1 = Rectangle(5, 10)
+        r1.update(id=12, width=8)
+        self.assertEqual(r1.id, 12)
+        self.assertEqual(r1.width, 8)
+        self.assertEqual(r1.height, 10)
+        self.assertEqual(r1.y, 0)
+
+    def test_update_with_kwargs_id_width_height(self):
+        """
+        Test the update method with kwargs, passing
+        id, height, and width.
+        """
+        r1 = Rectangle(5, 10)
+        r1.update(id=5, width=3, height=12)
+        self.assertEqual(r1.id, 5)
+        self.assertEqual(r1.width, 3)
+        self.assertEqual(r1.height, 12)
+        self.assertEqual(r1.x, 0)
+        self.assertEqual(r1.y, 0)
+
+    def test_update_with_kwargs_id_width_height_and_x(self):
+        """
+        Tests the update method with kwargs, passing id,
+        width, height, and x.
+        """
+        r1 = Rectangle(5, 10)
+        r1.update(id=7, width=6, height=4, x=2)
+        self.assertEqual(r1.id, 7)
+        self.assertEqual(r1.width, 6)
+        self.assertEqual(r1.height, 4)
+        self.assertEqual(r1.x, 2)
+        self.assertEqual(r1.y, 0)
+
+    def test_update_with_kwargs_all_attributes(self):
+        """
+        Tests the update method with kwargs and
+        all attributes.
+        """
+        r1 = Rectangle(5, 10)
+        r1.update(id=9, width=1, height=12, x=3, y=1)
+        self.assertEqual(r1.id, 9)
+        self.assertEqual(r1.width, 1)
+        self.assertEqual(r1.height, 12)
+        self.assertEqual(r1.x, 3)
+        self.assertEqual(r1.y, 1)
+
+    def test_update_with_kwargs_width(self):
+        """
+        Tests the update method with kwargs and
+        only width.
+        """
+        r1 = Rectangle(5, 10)
+        r1.update(width=7)
+        self.assertEqual(r1.width, 7)
+
+    def test_update_with_kwargs_height(self):
+        """
+        Tests the update method with kwargs and
+        only height.
+        """
+        r1 = Rectangle(5, 10)
+        r1.update(height=6)
+        self.assertEqual(r1.height, 6)
+        self.assertEqual(r1.width, 5)
+
+    def test_update_with_kwargs_x(self):
+        """
+        Tests the update method with kwargs and
+        only x.
+        """
+        r1 = Rectangle(5, 10)
+        r1.update(x=4)
+        self.assertEqual(r1.x, 4)
+
+    def test_update_with_kwargs_y(self):
+        """
+        Tests the update method with kwargs and only
+        y.
+        """
+        r1 = Rectangle(5, 10)
+        r1.update(y=2)
+        self.assertEqual(r1.y, 2)
+
+    def test_update_with_args_and_kwargs(self):
+        """
+        Tests the update method with args and kwargs.
+        """
+        r1 = Rectangle(5, 10)
+        r1.update(id=1, width=2, x=3, y=4, height=5)
+        self.assertEqual(r1.id, 1)
+        self.assertEqual(r1.width, 2)
+        self.assertEqual(r1.height, 5)
+        self.assertEqual(r1.x, 3)
+        self.assertEqual(r1.y, 4)
+
+    def test_to_dictionary(self):
+        """
+        Test the to_dictionary method with valid
+        arguments.
+        """
+        r1 = Rectangle(5, 10, 2, 3, 42)
+        r1_dict = r1.to_dictionary()
+        expected_dict = {
+            "id": 42,
+            "width": 5,
+            "height": 10,
+            "x": 2,
+            "y": 3
+        }
+        self.assertEqual(r1_dict, expected_dict)
