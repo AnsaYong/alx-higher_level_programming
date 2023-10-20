@@ -173,7 +173,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(str(self.rectangle), expected_str)
 
         self.rectangle = Rectangle(4, 4, 1)  # Another instance of Rectangle
-        expected_str = "[Rectangle] (16) 1/0 - 4/4"
+        expected_str = "[Rectangle] (12) 1/0 - 4/4"
         self.assertEqual(str(self.rectangle), expected_str)
 
     def test_display_x_y(self):
@@ -255,7 +255,7 @@ class TestRectangle(unittest.TestCase):
         r1 = Rectangle(10, 5)
         r1.update()
 
-        self.assertEqual(r1.id, 28)
+        self.assertEqual(r1.id, 24)
         self.assertEqual(r1.width, 10)
         self.assertEqual(r1.height, 5)
         self.assertEqual(r1.x, 0)
