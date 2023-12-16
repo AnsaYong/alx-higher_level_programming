@@ -33,5 +33,5 @@ def filter_states(username, password, db_name):
     db_connection.close()
 
 
-if __name__ = "__main__":
+if __name__ == "__main__":
     filter_states(sys.argv[1], sys.argv[2], sys.argv[3])
