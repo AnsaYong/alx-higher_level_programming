@@ -20,7 +20,8 @@ def filter_states(username, password, db_name):
             port=3306,
             user=username,
             passwd=password,
-            db=db_name
+            db=db_name,
+            charset="utf8"
             )
     cur = db_connection.cursor()
     cur.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
