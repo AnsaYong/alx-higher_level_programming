@@ -31,7 +31,7 @@ def states_user_input(username, password, db_name, search_name):
     cursor = db_connection.cursor()
 
     # Set query to execute
-    query = "SELECT * FROM states WHERE name = '{}' ORDER BY id ASC"
+    query = "SELECT * FROM states WHERE BINARY name = '{}' ORDER BY id ASC"
 
     # Execute query
     cursor.execute(query.format(search_name))
