@@ -8,6 +8,7 @@ from sqlalchemy.ext.declarative import declarative_base
 # Create instance of declarative_base()
 Base = declarative_base()
 
+
 class State(Base):
     """Links to a mysql table
     """
