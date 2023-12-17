@@ -24,7 +24,9 @@ def filter_states(username, password, db_name):
             charset="utf8"
             )
     cur = db_connection.cursor()
-    cur.execute("SELECT * FROM states WHERE BINARY name LIKE 'N%' ORDER BY id ASC")
+    cur.execute(
+            "SELECT * FROM states WHERE BINARY name LIKE 'N%' ORDER BY id ASC"
+            )
     query_data = cur.fetchall()
     for row in query_data:
         print(row)
