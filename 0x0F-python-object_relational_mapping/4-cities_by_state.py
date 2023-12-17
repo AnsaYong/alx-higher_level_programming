@@ -47,8 +47,8 @@ def list_cities_with_states(username, password, db_name):
         print(row)
 
     # Close the connection and the cursor
-    db_connection.close()
     cursor.close()
+    db_connection.close()
 
 
 if __name__ == "__main__":
