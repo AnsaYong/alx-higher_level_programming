@@ -1,11 +1,10 @@
 #!/usr/bin/python3
-"""This module provides provides a script that
-lists all state objects from a given database.
+"""Prints the first State object from the database hbtn_0e_6_usa.
 """
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from model_state import State
+from model_state import State, Base
 
 
 if __name__ == "__main__":
@@ -23,12 +22,12 @@ if __name__ == "__main__":
     # Create session
     session = Session()
 
-    # Query all State objects and order by id
-    states = session.query(State).order_by(State.id)
+    # Query the first State object
+    first_state = session.query(State).order_by(State.id).first()
 
     # Print the results
-    for state in states:
-        print("{}: {}".format(state.id, state.name))
+    if first_state:
+        print("{}: {}".format(first_state.id, first_state.name))
 
     # Close the session
     session.close()
