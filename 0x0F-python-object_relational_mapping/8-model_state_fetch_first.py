@@ -13,9 +13,6 @@ if __name__ == "__main__":
                            format(sys.argv[1], sys.argv[2],
                                   sys.argv[3]), pool_pre_ping=True)
 
-    # Bind the engine to the metadata of the Base class
-    Base.metadata.create_all(engine)
-
     # Create a configured "Session" class
     Session = sessionmaker(bind=engine)
 
