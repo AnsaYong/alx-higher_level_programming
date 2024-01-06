@@ -7,11 +7,9 @@ import requests
 
 if __name__ == "__main__":
     url = "https://alx-intranet.hbtn.io/status"
-
     response = requests.get(url)
 
-    content = response.content                  # Retrieve the content
-    utf8_content = content.decode('utf-8')      # Convert content to utf-8
+    content = response.text                  # Retrieve the content
 
     print("Body response:")
     print("\t- type:", type(content))
