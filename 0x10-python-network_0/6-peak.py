@@ -18,7 +18,8 @@ def find_peak(list_of_integers):
     if not list_of_integers:
         return None     # Handle empty list
 
-    low, high = 0, len(list_of_integers) - 1
+    low = 0
+    high = len(list_of_integers) - 1
 
     while low < high:
         mid = (low + high) // 2
