@@ -4,19 +4,20 @@
 This module provides a function that identifies the peak
 from a list of unsorted numbers"""
 
+
 def find_peak(list_of_integers):
     """
     Finds a peak in a list of unsorted integers using binary search.
-    
+
     Args:
         - list_of_integers: A list of unsorted integers.
-        
+
     Returns:
         - The peak element
     """
     if not list_of_integers:
         return None     # Handle empty list
-    
+
     low, high = 0, len(list_of_integers) - 1
 
     while low < high:
