@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """This module provides a function that identifies the peak
-from a list of unsorted numbers.
+_from a list of unsorted numbers.
 """
 
 
