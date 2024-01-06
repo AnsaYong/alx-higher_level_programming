@@ -14,16 +14,16 @@ if __name__ == "__main__":
     # URL for the authenticated user's information
     url = "https://api.github.com/user"
 
-    # Set up Basic Authentication using personal access token
-    auth = (username, token)
+    # Set up headers with Basic Authentication using personal access token
+    headers = {'Authorization': 'token ' + token}
 
     # Send GET request to GitHub API
-    response = requests.get(url, auth=auth)
+    response = requests.get(url, headers=headers)
 
     # Check if the request was successful (status code 200)
     if response.status_code == 200:
         user_data = response.json()
         user_id = user_data['id']
-        print("Your GitHub user ID:", user_id)
+        print(user_id)
     else:
-        print("Error:", response.text)
+        print("None")
