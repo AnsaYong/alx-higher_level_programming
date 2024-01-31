@@ -17,7 +17,7 @@ request.get(apiUrl, (error, response, body) => {
     console.error(error);
   } else if (response.statusCode !== 200) {
     // If the request was not successful, print the status code
-    console.error(`Error: ${response.statusCode} - ${response.statusMessage}`);
+    console.error(response.statusMessage);
   } else {
     try {
       // Parse the JSON response
@@ -30,7 +30,7 @@ request.get(apiUrl, (error, response, body) => {
       console.log(filmsWithWedge.length);
     } catch (parseError) {
       // If an error occurred during parsing, print the error message
-      console.error(`Error parsing the response: ${parseError.message}`);
+      console.error(parseError.message);
     }
   }
 });
