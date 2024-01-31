@@ -14,7 +14,7 @@ const apiUrl = process.argv[2];
 request.get(apiUrl, (error, response, body) => {
   if (error) {
     // If an error occurred during the request, print the error message
-    console.error(error);
+    console.error(error.message);
   } else if (response.statusCode !== 200) {
     // If the request was not successful, print the status code
     console.error(response.statusMessage);
